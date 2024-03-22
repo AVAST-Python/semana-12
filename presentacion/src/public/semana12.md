@@ -47,24 +47,46 @@ Ejercicio: usando índices, obtén el culo de estas cadenas: "culombio", "pedún
 
 # List comprehensions
 
+Sirven para evitar un bucle a la hora de crear una lista:
 
-  - `[expression(item) for item in iterable]`
-  - `even_numbers = [num for num in range(1, 10) if num % 2 == 0]`
-  - `multiplication = [[i * j for j in range(1, 6)] for i in range(2, 5)]`
-  -
-PONER EJEMPLOS:
-- Simple
-- If
-- If/else
-- doble for
+`[expression(item) for item in iterable]`
+
+Hay versiones más avanzadas. Ejemplos:
+
+`numbers = [1, 2, 3, 4]`
+
+- `[num * num for num in numbers]`
+- `[num * num for num in numbers if num > 2]`
+- `[num * num if num > 2 else 'patata' for num in numbers]`
+- `[[i * j for j in range(1, 6)] for i in range(2, 5)]`
 
 ---
 
-# Ejercicios list comprehensions
-
+# Ejercicios list comprehensions I
 
 ```python
 numeros = [1, 2, 3, 4, 5]
+```
+
+Ejercicio 1
+```python
+dobles = []
+
+for i in numeros:
+    dobles.append(i * 2)
+
+
+```
+<details>
+<summary>Solución</summary>
+<pre class="code-wrapper"><code class="python">
+dobles = [ i*2 for i in numeros]
+</code></pre>
+</details>
+
+Ejercicio 2
+
+```python
 mayores_que_dos = []
 for numero in numeros:
     if numero > 2:
@@ -80,45 +102,52 @@ mayores_que_dos = [ i if i > 2 for i in numeros]
 
 ---
 
+# Ejercicios list comprehensions II
 
-# Duplicar una lista
-numeros = [1, 2, 3, 4, 5]
-result = []
-
-for i in numeros:
-    result.append(i * 2)
-
-[ i*2 for i in numeros]
-
-# Obtener los mayores de dos
-numeros = [1, 2, 3, 4, 5]
-mayores_que_dos = []
-for numero in numeros:
-    if numero > 2:
-        mayores_que_dos.append(i)
-
-[ i for i in numeros if i > 2]
-
-# Loop
+Ejercicio 3
+```python
 transformed = []
 for i in range(5):
-    transformed.append(i * 2 if i % 2 == 0 else i)
-
-# List comprehension
+    if i % 2 == 0:
+        transformed.append(i * 2)
+    else:
+        transformed.append(i)
+```
+<details>
+<summary>Solución</summary>
+<pre class="code-wrapper"><code class="python">
 transformed = [i * 2 if i % 2 == 0 else i for i in range(5)]
+</code></pre>
+</details>
 
 
-
-# Loop
+Ejercicio 4
+```python
 matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 flattened = []
 for row in matrix:
     for item in row:
         flattened.append(item)
-
-# List comprehension
+```
+<details>
+<summary>Solución</summary>
+<pre class="code-wrapper"><code class="python">
 flattened = [item for row in matrix for item in row]
+</code></pre>
+</details>
 
+
+---
+# Ejercicios list comprehensions III
+
+Escribe un código Python utilizando list comprehensions que obtenga las tablas de multiplicar de los números 6,7 y 8.
+
+<details>
+<summary>Solución</summary>
+<pre class="code-wrapper"><code class="python">
+[[num*i for i in range(1, 11)] for num in range(6, 9)]
+</code></pre>
+</details>
 
 ---
 
@@ -145,30 +174,3 @@ Devuelve `True` si eres mejor, si no, `False`.
 <div></div> <!-- .element style="height: 200px" -->
 
 [Enlace Kata](https://www.codewars.com/kata/5601409514fc93442500010b)
-
-
-
----
-
-# Rangos
-
-
----
-
-# Tuplas
-
-https://realpython.com/python-tuple/
-fixed and unchangeable series of values
-puede contener múltiples tipos
-cero index
-
-
-
-
-
----
-
-
-# Diccionarios
-
-
